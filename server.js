@@ -13,7 +13,7 @@ const API_URL = "https://api-blue-chi.vercel.app";
 app.use(cors()); // Gunakan middleware cors
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 // Set view engine
@@ -21,6 +21,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Route to render the main page
 app.get("/", async (req, res) => {
